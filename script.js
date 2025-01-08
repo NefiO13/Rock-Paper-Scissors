@@ -1,4 +1,4 @@
-let playerScore = 0, computerScore = 0;
+let userName = 0, computerScore = 0;
 
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];

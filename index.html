@@ -20,25 +20,28 @@
         <!-- place navbar here -->
     </header>
     <main>
-        <h1> Rock Paper Scissors!</h1>
-
+        <h1>Rock Paper Scissors</h1>
         <div class="game-container">
             <div class="scoreboard">Player: <span id="playerScore">0</span> | Computer: <span
                     id="computerScore">0</span>
             </div>
-
             <div class="choices">
-                <div class="choice" onclick="play('rock')">
-                    <img src="imgs/rock.png" alt="Rock" title="Rock">
+                <div class="choice">
+                    <button onclick="play('rock')">
+                        <img src="imgs/rock.png" alt="Rock" title="Rock">
+                    </button>
                 </div>
-                <div class="choice" onclick="play('paper')">
-                    <img src="imgs/paper.png" alt="Paper" title="Paper">
+                <div class="choice">
+                    <button onclick="play('paper')">
+                        <img src="imgs/paper.png" alt="Paper" title="Paper">
+                    </button>
                 </div>
-                <div class="choice" onclick="play('scissors')">
-                    <img src="imgs/scissors.png" alt="Scissors" title="Scissors">
+                <div class="choice">
+                    <button onclick="play('scissors')">
+                        <img src="imgs/scissors.png" alt="Scissors" title="Scissors">
+                    </button>
                 </div>
             </div>
-
             <div class="result" id="result">Choose your move!</div>
             <button class="restart" onclick="resetGame()">Restart</button>
         </div>
