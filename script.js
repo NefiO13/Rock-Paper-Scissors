@@ -1,4 +1,4 @@
-let userName = 0, computerScore = 0;
+let playerScore = 0, computerScore = 0;
 
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
@@ -35,7 +35,12 @@ function updateScores() {
 function checkWinner() {
     if (playerScore === 3 || computerScore === 3) {
         const resultElement = document.getElementById('result');
-        resultElement.textContent = playerScore === 3 ? 'You win the game!' : 'Computer wins the game!';
+        if (playerScore === 3) {
+            resultElement.textContent = 'You win the game!';
+            triggerConfetti();
+        } else {
+            resultElement.textContent = 'Computer wins the game!';
+        }
         disableChoices();
     }
 }
@@ -50,4 +55,31 @@ function resetGame() {
     updateScores();
     document.getElementById('result').textContent = 'Choose your move!';
     document.querySelectorAll('.choice button').forEach(button => button.disabled = false);
+    clearConfetti();
+}
+
+// Create a new, plain <span> element
+let sp1 = document.createElement("span");
+
+// Get the reference element
+let sp2 = document.getElementById("childConfetti");
+// Get the parent element
+let parentDiv = sp2.parentNode;
+
+// Insert the new element into before sp2
+parentDiv.insertBefore(sp1, sp2);
+function triggerConfetti() {
+    for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        confetti.style.animationDuration = Math.random() * 2 + 3 + 's';
+        document.body.appendChild(confetti);
+        parentDiv.insertBefore(sp1, sp2);
+    }
+}
+
+function clearConfetti() {
+    document.querySelectorAll('.confetti').forEach(confetti => confetti.remove());
 }

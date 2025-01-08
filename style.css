@@ -1,25 +1,27 @@
  body {
    text-align: center;
-   background-color: #f0f0f0;
+   background-color: #90d6ff;
    margin: 0;
    overflow-x: hidden;
  }
 
  h1 {
+  margin-top: 30px;
 font-family: "mono45-headline", monospace;
   font-weight: 700;
   font-style: normal; 
-  color: rgba(180, 180, 180, 0.822);
+  font-size: 80px;
+  color: rgb(204, 190, 190);
 }
 
  .game-container {
-   margin-top: 50px;
+   margin-top: 30px;
  }
 
  .choices {
    display: flex;
    justify-content: center;
-   gap: 20px;
+   gap: 30px;
    margin: 20px;
  }
 
@@ -31,31 +33,31 @@ font-family: "mono45-headline", monospace;
  }
 
  .choice img {
-   width: 80px;
-   height: 80px;
-   border: 2px solid transparent;
+   width: 30%;
+   height: 30%;
+   justify-content: center;
    border-radius: 10px;
    transition: transform 0.2s, border-color 0.2s;
  }
 
  .choice img:hover {
    transform: scale(1.1);
-   border-color: #007BFF;
+   border-color: #ffffff;
  }
 
  .restart {
    padding: 10px 20px;
-   font-size: 16px;
+   font-size: 20px;
    cursor: pointer;
-   background-color: #28a745;
+   background-color: #075486;
    color: white;
    border: none;
    border-radius: 5px;
-   margin-top: 20px;
+   margin-top: 50px;
  }
 
  .restart:hover {
-   background-color: #218838;
+   background-color: #5e86dd;
  }
 
  .scoreboard,
@@ -64,12 +66,14 @@ font-family: "mono45-headline", monospace;
  }
 
  .result {
+  margin-top: 40px;
    font-size: 18px;
-   color: #007BFF;
+   color: #ffffff;
  }
 
  .confetti {
    position: fixed;
+   top: 0;
    width: 10px;
    height: 10px;
    background-color: rgba(255, 255, 255, 0.8);
