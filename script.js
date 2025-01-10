@@ -1,3 +1,15 @@
+// Ask for the user's name
+let userName = prompt("Hello, What is your name?");
+
+// Get the greeting element
+let greeting = document.getElementById('greeting');
+
+// display for greeting
+userName
+userName ? document.getElementById('greeting').innerText = `Hello, ${userName}!`
+    : document.getElementById('greeting').innerText = 'Hello stranger!'
+
+
 let playerScore = 0, computerScore = 0;
 
 function getComputerChoice() {
