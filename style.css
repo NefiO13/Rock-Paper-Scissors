@@ -1,6 +1,6 @@
  body {
    text-align: center;
-   background-color: #000000;
+   background-color: #90d6ff;
    margin: 0;
    overflow-x: hidden;
  }
@@ -21,23 +21,20 @@ font-family: "mono45-headline", monospace;
  .choices {
    display: flex;
    justify-content: center;
-   gap: 30px;
+   gap: 10px;
+   margin-top: 40px;
    }
 
  .choice button {
-   background: none;
-   border: none;
+  background: none;
+   border:none;
    padding: 0;
    cursor: pointer;
-   
  }
-*, ::after, ::before {
-  box-sizing: content-box;
-}
 
  .choice img {
-  width: 20%;
-    height: 20%;
+   width: 30%;
+   height: 30%;
    justify-content: center;
    border-radius: 10px;
    transition: transform 0.2s, border-color 0.2s;
@@ -63,14 +60,13 @@ font-family: "mono45-headline", monospace;
    background-color: #5e86dd;
  }
 
- .scoreboard,
- .result {
-  
+ .scoreboard {
+   margin: 15px 9;
  }
 
  .result {
-  margin-top: 7%;
-   font-size: 28px;
+  margin-top: 40px;
+   font-size: 18px;
    color: #ffffff;
  }
 
