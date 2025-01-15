@@ -15,7 +15,7 @@ font-family: "mono45-headline", monospace;
 }
 
  .game-container {
-   margin-top: 70px;
+   margin-top: 50px;
  }
 
  .choices {
@@ -28,7 +28,7 @@ font-family: "mono45-headline", monospace;
  .choice button {
   background: none;
    border:none;
-   padding: 0;
+   padding: 20;
    cursor: pointer;
  }
 
@@ -36,6 +36,7 @@ font-family: "mono45-headline", monospace;
    width: 30%;
    height: 30%;
    justify-content: center;
+   border: 2px solid transparent;
    border-radius: 10px;
    transition: transform 0.2s, border-color 0.2s;
  }
@@ -54,6 +55,7 @@ font-family: "mono45-headline", monospace;
    border: none;
    border-radius: 5px;
    margin-top: 10%;
+   display:none;
  }
 
  .restart:hover {
@@ -69,7 +71,10 @@ font-family: "mono45-headline", monospace;
    font-size: 18px;
    color: #ffffff;
  }
-
+.choices-container {
+  margin-top:20px;
+  font-size:16px;
+}
  .confetti {
    position: fixed;
    top: 0;

@@ -20,6 +20,10 @@ function getComputerChoice() {
 function play(playerChoice) {
     const computerChoice = getComputerChoice();
     const resultElement = document.getElementById('result');
+    resultDiv.innerHTML = `
+    <p> You chose: ${playerChoice}</p>
+    <p> The computer chose : ${computerChoice}</p>
+    <p>${determineWinner(playerChoice, computerChoice)}</p>`;
 
     if (playerChoice === computerChoice) {
         resultElement.textContent = `It's a tie! You both chose ${playerChoice}.`;
@@ -35,9 +39,10 @@ function play(playerChoice) {
         resultElement.textContent = `You lose! ${computerChoice} beats ${playerChoice}.`;
     }
 
+
     updateScores();
     checkWinner();
-}
+};
 
 function updateScores() {
     document.getElementById('playerScore').textContent = playerScore;
@@ -95,3 +100,4 @@ function triggerConfetti() {
 function clearConfetti() {
     document.querySelectorAll('.confetti').forEach(confetti => confetti.remove());
 }
+
