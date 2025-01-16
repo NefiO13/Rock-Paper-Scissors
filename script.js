@@ -19,11 +19,10 @@ function getComputerChoice() {
 
 function play(playerChoice) {
     const computerChoice = getComputerChoice();
-    const resultElement = document.getElementById('result');
-    resultDiv.innerHTML = `
-    <p> You chose: ${playerChoice}</p>
-    <p> The computer chose : ${computerChoice}</p>
-    <p>${determineWinner(playerChoice, computerChoice)}</p>`;
+    const resultElement = document.getElementById('results');
+    const choicesContainer = document.getElementById('choicesContainer');
+
+    choicesContainer.textContent = `You chose: ${playerChoice} | Computer chose: ${computerChoice}`
 
     if (playerChoice === computerChoice) {
         resultElement.textContent = `It's a tie! You both chose ${playerChoice}.`;
@@ -52,6 +51,9 @@ function updateScores() {
 function checkWinner() {
     if (playerScore === 3 || computerScore === 3) {
         const resultElement = document.getElementById('result');
+        const restartButton = document.getElementById('restartButton');
+        const choices = document.querySelector('.choices');
+
         if (playerScore === 3) {
             resultElement.textContent = 'You win the game!';
             triggerConfetti();
@@ -59,11 +61,15 @@ function checkWinner() {
             resultElement.textContent = 'Computer wins the game!';
         }
         disableChoices();
+
     }
+    restartButton.style.display = 'inline-block';
+    choices.style.display = 'none';
 }
 
 function disableChoices() {
-    document.querySelectorAll('.choice button').forEach(button => button.disabled = true);
+    document.querySelectorAll('.choice button').forEach(button => button.disabled = false);  )
+}
 }
 
 function resetGame() {
@@ -71,7 +77,7 @@ function resetGame() {
     computerScore = 0;
     updateScores();
     document.getElementById('result').textContent = 'Choose your move!';
-    document.querySelectorAll('.choice button').forEach(button => button.disabled = false);
+    document.getElementById('choicesContainer').textContent = 'Chose your move!';
     clearConfetti();
 }
 
