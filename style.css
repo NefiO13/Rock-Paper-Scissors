@@ -1,43 +1,44 @@
  body {
    text-align: center;
-   background-color: #90d6ff;
+   background-color: #91bef1;
    margin: 0;
    overflow-x: hidden;
  }
 
  h1 {
-  margin-top: 80px;
-font-family: "mono45-headline", monospace;
-  font-weight: 700px;
-  font-style: normal; 
-  font-size: 80px;
-  color: rgb(92, 88, 88);
-}
+  font-family: "mono45-headline", monospace;
+    font-weight: 700px;
+    font-style: normal;
+    font-size: 80px;
+    color: rgb(92, 88, 88);
+    margin-top: 50px;
+ }
 
  .game-container {
-   margin-top: 50px;
+   margin-top: 80px;
  }
 
  .choices {
    display: flex;
    justify-content: center;
-   gap: 10px;
-   margin-top: 5%;
-   }
+
+   margin: 5%;
+ }
 
  .choice button {
-  background: none;
-   border:none;
+   background: none;
+   border: none;
    padding: 0;
    cursor: pointer;
  }
 
  .choice img {
-   width: 30%;
-   height: 30%;
+   width: 25%;
+   height: 25%;
    border: 2px solid transparent;
    border-radius: 10px;
    transition: transform 0.2s, border-color 0.2s;
+
  }
 
  .choice img:hover {
@@ -47,33 +48,36 @@ font-family: "mono45-headline", monospace;
 
  .restart {
    padding: 10px 20px;
-   font-size: 20px;
+   font-size: 16px;
    cursor: pointer;
    background-color: #075486;
    color: white;
    border: none;
    border-radius: 5px;
-   margin-top: 10%;
-   display: none;
+   margin-top: 5%;
+ 
  }
 
  .restart:hover {
    background-color: #5e86dd;
  }
 
- .scoreboard, .result {
+ .scoreboard {
    margin-top: 30px;
+   font-size: 30px;
  }
 
  .result {
-  margin-top: 40px;
-   font-size: 18px;
+  margin-top: 4%;
+   font-size: 28px;
    color: #ffffff;
  }
-.choices-container {
-  margin-top:20px;
-  font-size:16px;
-}
+
+ .choices-container {
+   
+   font-size: 28px;
+ }
+
  .confetti {
    position: fixed;
    top: 0;
@@ -95,5 +99,3 @@ font-family: "mono45-headline", monospace;
      opacity: 0;
    }
  }
-
- 

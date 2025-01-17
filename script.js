@@ -51,8 +51,6 @@ function updateScores() {
 function checkWinner() {
     if (playerScore === 3 || computerScore === 3) {
         const resultElement = document.getElementById('result');
-        const restartButton = document.getElementById('restartButton');
-        const choices = document.querySelector('.choices');
 
         if (playerScore === 3) {
             resultElement.textContent = 'You win the game!';
@@ -60,17 +58,13 @@ function checkWinner() {
         } else {
             resultElement.textContent = 'Computer wins the game!';
         }
-        disableChoices();
 
+
+        restartButton.style.display = 'inline-block';
+        choices.style.display = 'none';
     }
-    restartButton.style.display = 'inline-block';
-    choices.style.display = 'none';
 }
 
-function disableChoices() {
-    document.querySelectorAll('.choice button').forEach(button => button.disabled = false);  )
-}
-}
 
 function resetGame() {
     playerScore = 0;
