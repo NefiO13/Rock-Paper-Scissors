@@ -6,10 +6,10 @@
  }
 
  h1 {
-  font-family: "mono45-headline", monospace;
+  font-family: "arbuckle-bright", sans-serif;
     font-weight: 700px;
     font-style: normal;
-    font-size: 80px;
+    font-size: 124px;
     color: rgb(92, 88, 88);
     margin-top: 50px;
  }
@@ -54,7 +54,7 @@
    color: white;
    border: none;
    border-radius: 5px;
-   margin-top: 5%;
+   margin-top: 1%;
  
  }
 
@@ -67,7 +67,7 @@
    font-size: 30px;
  }
 
- .result {
+ .results {
   margin-top: 4%;
    font-size: 28px;
    color: #ffffff;
@@ -87,7 +87,9 @@
    border-radius: 50%;
    animation: fall 3s infinite;
  }
-
+#greeting{
+  font-size: 16px;
+}
  @keyframes fall {
    0% {
      transform: translateY(-100%) rotate(0deg);

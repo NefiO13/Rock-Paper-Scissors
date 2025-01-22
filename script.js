@@ -4,6 +4,9 @@ let userName = prompt("Hello, What is your name?");
 // Get the greeting element
 let greeting = document.getElementById('greeting');
 
+const resultElement = document.getElementById('results');
+
+
 // display for greeting
 userName
 userName ? document.getElementById('greeting').innerText = `Hello, ${userName}!`
@@ -19,7 +22,6 @@ function getComputerChoice() {
 
 function play(playerChoice) {
     const computerChoice = getComputerChoice();
-    const resultElement = document.getElementById('results');
     const choicesContainer = document.getElementById('choicesContainer');
 
     choicesContainer.textContent = `You chose: ${playerChoice} | Computer chose: ${computerChoice}`
@@ -50,7 +52,6 @@ function updateScores() {
 
 function checkWinner() {
     if (playerScore === 3 || computerScore === 3) {
-        const resultElement = document.getElementById('result');
 
         if (playerScore === 3) {
             resultElement.textContent = 'You win the game!';
@@ -61,7 +62,6 @@ function checkWinner() {
 
 
         restartButton.style.display = 'inline-block';
-        choices.style.display = 'none';
     }
 }
 
@@ -70,7 +70,7 @@ function resetGame() {
     playerScore = 0;
     computerScore = 0;
     updateScores();
-    document.getElementById('result').textContent = 'Choose your move!';
+    document.getElementById('results').textContent = 'Choose your move!';
     document.getElementById('choicesContainer').textContent = 'Chose your move!';
     clearConfetti();
 }
