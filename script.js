@@ -5,13 +5,15 @@ let userName = prompt("Hello, What is your name?");
 let greeting = document.getElementById('greeting');
 
 const resultElement = document.getElementById('results');
-
+const restartButton = document.getElementById('restartButton');
+const choicesButton = document.getElementById('.choices button');
 
 // display for greeting
 userName
 userName ? document.getElementById('greeting').innerText = `Hello, ${userName}!`
     : document.getElementById('greeting').innerText = 'Hello stranger!'
 
+restartButton.style.display = 'none';
 
 let playerScore = 0, computerScore = 0;
 
@@ -24,7 +26,7 @@ function play(playerChoice) {
     const computerChoice = getComputerChoice();
     const choicesContainer = document.getElementById('choicesContainer');
 
-    choicesContainer.textContent = `You chose: ${playerChoice} | Computer chose: ${computerChoice}`
+    choicesContainer.textContent = `You chose: ${playerChoice} | Computer chose: ${computerChoice}`;
 
     if (playerChoice === computerChoice) {
         resultElement.textContent = `It's a tie! You both chose ${playerChoice}.`;
@@ -40,10 +42,9 @@ function play(playerChoice) {
         resultElement.textContent = `You lose! ${computerChoice} beats ${playerChoice}.`;
     }
 
-
     updateScores();
     checkWinner();
-};
+}
 
 function updateScores() {
     document.getElementById('playerScore').textContent = playerScore;
@@ -52,7 +53,6 @@ function updateScores() {
 
 function checkWinner() {
     if (playerScore === 3 || computerScore === 3) {
-
         if (playerScore === 3) {
             resultElement.textContent = 'You win the game!';
             triggerConfetti();
@@ -60,21 +60,44 @@ function checkWinner() {
             resultElement.textContent = 'Computer wins the game!';
         }
 
-
+        // Show the restart button
         restartButton.style.display = 'inline-block';
+
+        // Disable choice buttons
+        disableChoiceButtons();
     }
 }
 
+function disableChoiceButtons() {
+    // Loop through each choice button and disable it
+    choicesButtons.forEach(button => {
+        button.disabled = true;
+    });
+}
+
+function enableChoiceButtons() {
+    // Loop through each choice button and enable it
+    choicesButtons.forEach(button => {
+        button.disabled = false;
+    });
+}
 
 function resetGame() {
     playerScore = 0;
     computerScore = 0;
     updateScores();
     document.getElementById('results').textContent = 'Choose your move!';
-    document.getElementById('choicesContainer').textContent = 'Chose your move!';
+    document.getElementById('choicesContainer').textContent = 'You chose: - | Computer chose: -';
+
+    // Hide the restart button
+    restartButton.style.display = 'none';
+
+    // Enable choice buttons
+    enableChoiceButtons();
+
+
     clearConfetti();
 }
-
 // Create a new, plain <span> element
 let sp1 = document.createElement("span");
 
@@ -85,6 +108,8 @@ let parentDiv = sp2.parentNode;
 
 // Insert the new element into before sp2
 parentDiv.insertBefore(sp1, sp2);
+
+
 function triggerConfetti() {
     for (let i = 0; i < 100; i++) {
         const confetti = document.createElement('div');
@@ -100,4 +125,3 @@ function triggerConfetti() {
 function clearConfetti() {
     document.querySelectorAll('.confetti').forEach(confetti => confetti.remove());
 }
-
