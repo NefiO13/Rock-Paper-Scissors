@@ -3,7 +3,6 @@ let userName = prompt("Hello, What is your name?");
 
 // Get the greeting element
 let greeting = document.getElementById('greeting');
-
 const resultElement = document.getElementById('results');
 const restartButton = document.getElementById('restartButton');
 const choicesButton = document.getElementById('.choices button');
@@ -16,6 +15,7 @@ userName ? document.getElementById('greeting').innerText = `Hello, ${userName}!`
 restartButton.style.display = 'none';
 
 let playerScore = 0, computerScore = 0;
+let confettiInterval; // To store the confetti interval
 
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
@@ -69,20 +69,21 @@ function checkWinner() {
 }
 
 function disableChoiceButtons() {
-    // Loop through each choice button and disable it
+    // Disable all choice buttons
     choicesButtons.forEach(button => {
         button.disabled = true;
     });
 }
 
 function enableChoiceButtons() {
-    // Loop through each choice button and enable it
+    // Enable all choice buttons
     choicesButtons.forEach(button => {
         button.disabled = false;
     });
 }
 
 function resetGame() {
+    // Reset scores and UI
     playerScore = 0;
     computerScore = 0;
     updateScores();
@@ -95,33 +96,26 @@ function resetGame() {
     // Enable choice buttons
     enableChoiceButtons();
 
-
+    // Stop and clear the confetti
     clearConfetti();
 }
-// Create a new, plain <span> element
-let sp1 = document.createElement("span");
-
-// Get the reference element
-let sp2 = document.getElementById("childConfetti");
-// Get the parent element
-let parentDiv = sp2.parentNode;
-
-// Insert the new element into before sp2
-parentDiv.insertBefore(sp1, sp2);
-
 
 function triggerConfetti() {
-    for (let i = 0; i < 100; i++) {
-        const confetti = document.createElement('div');
-        confetti.classList.add('confetti');
-        confetti.style.left = Math.random() * 100 + 'vw';
-        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-        confetti.style.animationDuration = Math.random() * 2 + 3 + 's';
-        document.body.appendChild(confetti);
-        parentDiv.insertBefore(sp1, sp2);
-    }
+    // Create and animate confetti
+    confettiInterval = setInterval(() => {
+        for (let i = 0; i < 10; i++) {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            confetti.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(confetti);
+        }
+    }, 300);
 }
 
 function clearConfetti() {
+    // Clear the confetti interval and remove all confetti elements
+    clearInterval(confettiInterval);
     document.querySelectorAll('.confetti').forEach(confetti => confetti.remove());
 }
