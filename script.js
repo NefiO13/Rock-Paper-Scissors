@@ -115,3 +115,9 @@ function triggerConfetti() {
 function clearConfetti() {
     document.querySelectorAll('.confetti').forEach(confetti => confetti.remove());
 }
+
+function refreshPage(){
+    window.location.reload();
+} 
+
+playgame()
