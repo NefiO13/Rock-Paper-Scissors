@@ -15,7 +15,7 @@ userName ? document.getElementById('greeting').innerText = `Hello, ${userName}!`
 restartButton.style.display = 'none';
 
 let playerScore = 0, computerScore = 0;
-let confettiInterval; // To store the confetti interval
+
 
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
@@ -102,7 +102,6 @@ function resetGame() {
 
 function triggerConfetti() {
     // Create and animate confetti
-    confettiInterval = setInterval(() => {
         for (let i = 0; i < 10; i++) {
             const confetti = document.createElement('div');
             confetti.classList.add('confetti');
@@ -111,11 +110,8 @@ function triggerConfetti() {
             confetti.style.animationDuration = Math.random() * 2 + 3 + 's';
             document.body.appendChild(confetti);
         }
-    }, 300);
 }
 
 function clearConfetti() {
-    // Clear the confetti interval and remove all confetti elements
-    clearInterval(confettiInterval);
     document.querySelectorAll('.confetti').forEach(confetti => confetti.remove());
 }
