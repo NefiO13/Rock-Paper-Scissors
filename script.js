@@ -5,7 +5,9 @@ let userName = prompt("Hello, What is your name?");
 let greeting = document.getElementById('greeting');
 const resultElement = document.getElementById('results');
 const restartButton = document.getElementById('restartButton');
-const choicesButton = document.getElementById('.choices button');
+const choicesButton = document.getElementById('.choices-button');
+const choicesImages = document.getElementById('.choice img');
+
 
 // display for greeting
 userName
@@ -15,7 +17,7 @@ userName ? document.getElementById('greeting').innerText = `Hello, ${userName}!`
 restartButton.style.display = 'none';
 
 let playerScore = 0, computerScore = 0;
-let confettiInterval; // To store the confetti interval
+
 
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
@@ -64,23 +66,20 @@ function checkWinner() {
         restartButton.style.display = 'inline-block';
 
         // Disable choice buttons
-        disableChoiceButtons();
+        disableChoices();
     }
 }
 
-function disableChoiceButtons() {
+function disableChoices() {
     // Disable all choice buttons
     choicesButtons.forEach(button => {
         button.disabled = true;
     });
-}
-
-function enableChoiceButtons() {
-    // Enable all choice buttons
-    choicesButtons.forEach(button => {
-        button.disabled = false;
+    choiceImages.forEach(img => {
+        img.style.filter = 'grayscale(100%)'; // Apply grayscale to indicate disabled state
     });
 }
+
 
 function resetGame() {
     // Reset scores and UI
@@ -93,29 +92,37 @@ function resetGame() {
     // Hide the restart button
     restartButton.style.display = 'none';
 
-    // Enable choice buttons
-    enableChoiceButtons();
 
     // Stop and clear the confetti
     clearConfetti();
 }
 
+// Create a new, plain <span> element
+let sp1 = document.createElement("span");
+
+// Get the reference element
+let sp2 = document.getElementById("childConfetti");
+// Get the parent element
+let parentDiv = sp2.parentNode;
+
+// Insert the new element into before sp2
+parentDiv.insertBefore(sp1, sp2);
+
+
 function triggerConfetti() {
     // Create and animate confetti
-    confettiInterval = setInterval(() => {
-        for (let i = 0; i < 10; i++) {
-            const confetti = document.createElement('div');
-            confetti.classList.add('confetti');
-            confetti.style.left = Math.random() * 100 + 'vw';
-            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-            confetti.style.animationDuration = Math.random() * 2 + 3 + 's';
-            document.body.appendChild(confetti);
-        }
-    }, 300);
+    for (let i = 0; i < 10; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        confetti.style.animationDuration = Math.random() * 2 + 3 + 's';
+        document.body.appendChild(confetti);
+    }
 }
 
 function clearConfetti() {
     // Clear the confetti interval and remove all confetti elements
-    clearInterval(confettiInterval);
+
     document.querySelectorAll('.confetti').forEach(confetti => confetti.remove());
 }
