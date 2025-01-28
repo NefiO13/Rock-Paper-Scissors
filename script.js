@@ -111,6 +111,7 @@ parentDiv.insertBefore(sp1, sp2);
 
 function triggerConfetti() {
     // Create and animate confetti
+<<<<<<< HEAD
     for (let i = 0; i < 10; i++) {
         const confetti = document.createElement('div');
         confetti.classList.add('confetti');
@@ -124,5 +125,24 @@ function triggerConfetti() {
 function clearConfetti() {
     // Clear the confetti interval and remove all confetti elements
 
+=======
+        for (let i = 0; i < 10; i++) {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            confetti.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(confetti);
+        }
+}
+
+function clearConfetti() {
+>>>>>>> 419030f491e555fe78f2e55079f9970bd951fda0
     document.querySelectorAll('.confetti').forEach(confetti => confetti.remove());
 }
+
+function refreshPage(){
+    window.location.reload();
+} 
+
+playgame()
