@@ -5,7 +5,7 @@ let userName = prompt("Hello, What is your name?");
 let greeting = document.getElementById('greeting');
 const resultElement = document.getElementById('results');
 const restartButton = document.getElementById('restartButton');
-const choicesButton = document.getElementById('.choices-button');
+const choicesButton = document.getElementById('.choice button');
 const choicesImages = document.getElementById('.choice img');
 
 
@@ -63,6 +63,7 @@ function checkWinner() {
             triggerConfetti();
         } else {
             resultElement.textContent = 'Computer wins the game!';
+            makeImagesGray();
         }
 
         // Show the restart button
@@ -75,11 +76,29 @@ function checkWinner() {
 
 function disableChoices() {
     // Disable all choice buttons
-    choicesButton.forEach(button => {
+    choicesButton.forEach((button) => {
         button.disabled = true;
     });
-    choiceImages.forEach(img => {
-        img.style.filter = 'grayscale(100%)'; // Apply grayscale to indicate disabled state
+
+}
+
+
+function enableChoices() {
+    choicesButtons.forEach((button) => {
+        button.disabled = false;
+    });
+    resetImagesColor(); // Reset image color when enabling choices
+}
+
+function makeImagesGray() {
+    choicesImages.forEach((img) => {
+        img.style.filter = "grayscale(100%)"; // Make images gray
+    });
+}
+
+function resetImagesColor() {
+    choicesImages.forEach((img) => {
+        img.style.filter = "none"; // Restore original colors
     });
 }
 
@@ -94,7 +113,8 @@ function resetGame() {
 
     // Hide the restart button
     restartButton.style.display = 'none';
-
+    enableChoices();
+    resetImagesColor();
 
     // Stop and clear the confetti
     clearConfetti();
@@ -141,3 +161,4 @@ function clearConfetti() {
     document.querySelectorAll('.confetti').forEach(confetti => confetti.remove());
 }
 
+playgame();
