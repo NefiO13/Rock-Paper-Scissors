@@ -25,6 +25,9 @@ function getComputerChoice() {
 }
 
 function play(playerChoice) {
+    if (playerScore === 3 || computerScore === 3) return;
+
+
     const computerChoice = getComputerChoice();
     const choicesContainer = document.getElementById('choicesContainer');
 
@@ -72,7 +75,7 @@ function checkWinner() {
 
 function disableChoices() {
     // Disable all choice buttons
-    choicesButtons.forEach(button => {
+    choicesButton.forEach(button => {
         button.disabled = true;
     });
     choiceImages.forEach(img => {
@@ -138,8 +141,3 @@ function clearConfetti() {
     document.querySelectorAll('.confetti').forEach(confetti => confetti.remove());
 }
 
-function refreshPage() {
-    window.location.reload();
-}
-
-playgame()
