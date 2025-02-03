@@ -90,7 +90,7 @@
    height: 10px;
    background-color: rgba(255, 255, 255, 0.8);
    border-radius: 50%;
-   animation: fall 3s infinite;
+   animation: fall 1ms infinite;
  }
 
  @keyframes fall {
