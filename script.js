@@ -11,7 +11,7 @@ const choicesImages = document.getElementById('.choice img');
 
 // display for greeting
 userName
-userName ? document.getElementById('greeting').innerText = `Hello, ${userName}!`
+userName ? document.getElementById('greeting').innerText = `Hello, ${userName}! Click a choice to start the game!`
     : document.getElementById('greeting').innerText = 'Hello stranger!'
 
 restartButton.style.display = 'none';
